@@ -67,7 +67,7 @@ registerForm.addEventListener('submit', async(event) => {
                 showError("Redirecting to login ...")
 
                 setTimeout(() => {
-                    window.location.href ="/login.html"
+                    window.location.href ="./login.html"
                 }, 1500);
                 
             }, 2000);

@@ -160,7 +160,7 @@ const addBlogsToHome = async()=>{
      const currentBlog = blogContainer.lastElementChild;
    
      currentBlog.addEventListener("click", function (event) {
-       window.location.href = `/blog.html?blogId=${blog._id}`;
+       window.location.href = `./blog.html?blogId=${blog._id}`;
      });
    });
 }
