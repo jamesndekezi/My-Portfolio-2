@@ -1,0 +1,40 @@
+.about {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.about-intro {
+  width: 50%;
+}
+
+.about-right {
+  width: 50%;
+}
+
+.about-right img {
+  width: 100%;
+}
+
+.about-intro h4 {
+  text-align: center;
+  padding-bottom: 15px;
+}
+
+.about-intro p {
+  padding-bottom: 10px;
+}
+
+@media only screen and (max-width: 7800px) {
+  .about {
+    flex-direction: column;
+  }
+
+  .about-intro {
+    width: 100%;
+  }
+
+  .about-right {
+    width: 100%;
+  }
+}

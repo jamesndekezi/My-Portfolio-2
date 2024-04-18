@@ -1,0 +1,97 @@
+body {
+  background: #2c3435;
+  position: relative;
+}
+
+.common {
+  max-width: 1212px;
+  width: 100%;
+  margin: auto;
+  padding: 40px 30px;
+}
+
+h4 {
+  font-size: 35px;
+  margin-bottom: 20px;
+  color: white;
+  white-space: nowrap;
+}
+
+h3 {
+  font-size: 25px;
+  color: gray;
+}
+
+h2 {
+  font-size: 40px;
+}
+
+.reveals {
+  position: relative;
+  transform: translateY(100px);
+  opacity: 0;
+  transition: all 1s ease;
+}
+
+.reveals.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.flex {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+nav h3 {
+  font-size: 40px;
+  color: white;
+  font-family: "roboto";
+}
+
+nav {
+  z-index: 1000;
+}
+
+nav a {
+  font-size: 20px;
+  color: white;
+  font-family: "roboto";
+}
+
+.all-p {
+  font-size: 20px;
+  font-family: "roboto";
+  color: white;
+}
+
+.title {
+  font-size: 20px;
+  color: black;
+  font-family: "roboto";
+}
+
+.block {
+  font-size: 16px;
+  font-family: "roboto";
+  color: gray;
+}
+
+@media only screen and (max-width: 460px) {
+  nav h3 {
+    font-size: 25px;
+  }
+
+  .all-p {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 900px) {
+  nav a {
+    font-size: 18px;
+  }
+}

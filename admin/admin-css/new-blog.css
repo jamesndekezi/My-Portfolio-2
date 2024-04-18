@@ -1,0 +1,80 @@
+
+
+.new-title {
+    padding: 10px 15px;
+    border-radius: 10px;
+    border: none;
+    /* background: rgb(160, 149, 149); */
+}
+
+.new-title::placeholder{
+    color: white;
+}
+
+.soleilgs {
+    margin-bottom: 10px;
+}
+.soleill img {
+    width: 100px;
+}
+
+.soleill {
+    display: flex;
+    /* justify-content: space-around; */
+    justify-items: center;
+    background: rgb(120, 128, 128);
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.new-image {
+    display: none;
+}
+
+#add {
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    color: white;
+    background-color: rgb(170, 161, 172);
+    width: 100px;
+    margin-top: 20px;
+
+    float: right;
+}
+
+.hask {
+    display: flex;
+    align-items: center;
+    float: right;
+    gap: 5px;
+    margin-bottom: 1px;
+}
+
+#show-image{
+    width: 100px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+}
+
+
+#soleil-test {
+
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    margin:10px auto;
+    width: 200px;
+    float: right;
+    background: blue;
+    color: white;
+
+}
+
+
+.mod textarea {
+
+    height: 50px;
+
+}

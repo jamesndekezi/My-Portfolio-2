@@ -6,6 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio</title>
     <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="./css/index.css" />
+    <link rel="stylesheet" href="./css/navbar.css" />
+    <link rel="stylesheet" href="./css/hero.css" />
+    <link rel="stylesheet" href="./css/about.css" />
+    <link rel="stylesheet" href="./css/skills.css" />
+    <link rel="stylesheet" href="./css/project.css" />
+    <link rel="stylesheet" href="./css/blog.css" />
+    <link rel="stylesheet" href="./css/contact.css" />
+    <link rel="stylesheet" href="./css/slider.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -362,84 +371,93 @@
                 <div class="main-title">
                     <h2>My <span>Blogs</span><span class="bg-text">My Blogs</span></h2>
                 </div>
-                <div class="blogs">
-                    <div class="blog">
-                        <img src="img/port6.jpg" alt="">
-                        <div class="blog-text">
-                            <h4>
-                                How to Create Your Own Website
-                            </h4>
-                            <p>
-                                Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
-                                Doloribus natus voluptas, eos obcaecati recusandae amet?
-                            </p>
-                        </div>
-                    </div>
-                    <div class="blog">
-                        <img src="img/blog1.jpg" alt="">
-                        <div class="blog-text">
-                            <h4>
-                                How to Become an Expert in Web Design
-                            </h4>
-                            <p>
-                                Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
-                                Doloribus natus voluptas, eos obcaecati recusandae amet?
-                            </p>
-                        </div>
-                    </div>
-                    <div class="blog">
-                        <img src="img/blog2.jpg" alt="">
-                        <div class="blog-text">
-                            <h4>
-                                Become a Web Designer in 10 Days
-                            </h4>
-                            <p>
-                                Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
-                                Doloribus natus voluptas, eos obcaecati recusandae amet?
-                            </p>
-                        </div>
-                    </div>
-                    <div class="blog">
-                        <img src="img/blog3.jpg" alt="">
-                        <div class="blog-text">
-                            <h4>
-                                Debbuging made easy with Web Inspector
-                            </h4>
-                            <p>
-                                Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
-                                Doloribus natus voluptas, eos obcaecati recusandae amet?
-                            </p>
-                        </div>
-                    </div>
-                    <div class="blog">
-                        <img src="img/port1.jpg" alt="">
-                        <div class="blog-text">
-                            <h4>
-                                Get started with Web Design and UI Design
-                            </h4>
-                            <p>
-                                Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
-                                Doloribus natus voluptas, eos obcaecati recusandae amet?
-                            </p>
-                        </div>
-                    </div>
-                    <div class="blog">
-                        <img src="img/port3.jpg" alt="">
-                        <div class="blog-text">
-                            <h4>
-                                This is what you need to know about Web Design
-                            </h4>
-                            <p>
-                                Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
-                                Doloribus natus voluptas, eos obcaecati recusandae amet?
-                            </p>
-                        </div>
-                    </div>
+                <div class="blogs" id="blogs-container">
+                  
                 </div>
             </div>
         </section>
         <section class="container contact" id="contact">
-            <div class="contact-container">
+            <!-- <div class="common contact-me reveals" id="contact-me">
+                <h4>Contact me</h4>
+                <div class="contact-container">
+                  <div class="contact-left">
+                    <form id="contact-form">
+                      <input
+                        class="input"
+                        type="text"
+                        placeholder="Name"
+                        id="contact-name"
+                      />
+                      <input
+                        class="input"
+                        type="text"
+                        placeholder="Email"
+                        id="contact-email"
+                      />
+                      <p class="error" id="email-message"></p>
+                      <input
+                        class="input"
+                        type="text"
+                        placeholder="Subject"
+                        id="contact-subject"
+                      />
+                      <textarea placeholder="Message" id="contact-message"></textarea>
+                      <p class="error" id="error-message">Error message</p>
+                      <div class="subscribe">
+                        <input class="check" type="checkbox" id="is-newsletter-checked" />
+                        <label for="is-newsletter-checked">Subscribe to Newsletter</label>
+                      </div>
+          
+                      <button type="submit" id="send-ms">
+                        <div class="loading11" id="loader12">
+                          <div class="spinner11"></div>
+                        </div>
+          
+                        <span id="span12">Send</span>
+                      </button>
+                    </form>
+                  </div>
+                  <div class="contact-right">
+                    <div class="contact">
+                      <img
+                        src="./images/social/on.png"
+                        alt="conatc image"
+                        class="contact-mg"
+                        width="50px"
+                      />
+                      <p>Kg 452 st</p>
+                    </div>
+                    <div class="contact">
+                      <img
+                        src="./images/social/gmail.png"
+                        alt="conatc image"
+                        class="contact-mg"
+                        width="50px"
+                      />
+                      <p>srukundo02@gmail.com</p>
+                    </div>
+                    <div class="contact">
+                      <img
+                        src="./images/social/call.png"
+                        alt="conatc image"
+                        class="contact-mg"
+                        width="50px"
+                      />
+                      <p>+250782443651</p>
+                    </div>
+                    <div class="contact">
+                      <img
+                        src="./images/social/github.png"
+                        alt="conatc image"
+                        class="contact-mg"
+                        width="50px"
+                      />
+                      <p>Github</p>
+                    </div>
+                  </div>
+                </div>
+              </div> -->
+            <div class="conta-href="/blog.html" container">
                 <div class="main-title">
                     <h2>Contact <span>Me</span><span class="bg-text">Contact</span></h2>
                 </div>
@@ -517,25 +535,28 @@
                     <div class="right-contact">
                         <form action="" class="contact-form">
                             <div class="input-control i-c-2">
-                                <input type="text" required placeholder="YOUR NAME">
-                                <input type="email" required placeholder="YOUR EMAIL">
+                                <input type="text" id="contact-name" required placeholder="YOUR NAME">
+                                <input id="contact-email"  type="email" required placeholder="YOUR EMAIL">
                             </div>
                             <div class="input-control">
-                                <input type="text" required placeholder="ENTER SUBJECT">
+                                <input type="text" id="contact-subject"  required placeholder="ENTER SUBJECT">
                             </div>
                             <div class="input-control">
-                                <textarea name="" id="" cols="15" rows="8" placeholder="Message Here..."></textarea>
+                                <textarea name="" id="contact-message"  cols="15" rows="8" placeholder="Message Here..."></textarea>
                             </div>
-                            <div class="btn-con">
+                            <!-- <div class="btn-con">
                                 <a href="docs/James CV..3.pdf" class="main-btn" download="YourCV.pdf">
                                     <span class="btn-text">Download CV</span>
                                     <span class="btn-icon"><i class="fas fa-download"></i></span>
                                 </a>
+                            </div> -->
+                            <div class="btn-con">
+                                <button class="main-btn" onclick="redirectToLogin()">Send Message</button>
                             </div>
                         </form>
                     </div>
                 </div>
-            </div>
+          </a> 
         </section>
     </main>
 
@@ -560,5 +581,7 @@
         <i class="fas fa-adjust"></i>
     </div>
     <script src="app.js"></script>
+    <script src="./javascript/blog.js"></script>
+    <script src="./javascript/contact.js"></script>
 </body>
 </html>

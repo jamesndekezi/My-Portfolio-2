@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/blog-details.css" />
+    <link rel="stylesheet" href="./css/index.css" />
+
+    <title>My blogs</title>
+    <style>
+      .tail {
+        display: flex;
+        gap: 10px;
+        font-size: 25px;
+        align-items: center;
+      }
+
+      .like-holder img {
+        width: 30px;
+        height: 30px;
+      }
+      .like-holder {
+        display: flex;
+        gap: 4px;
+        align-items: center;
+      }
+
+      .like-holder span {
+        font-size: 20px;
+        color: white;
+      }
+
+      .login-btn {
+        background: green;
+        padding: 5px 15px;
+        cursor: pointer;
+      }
+      
+
+      .log {
+        display: flex;
+        /* display: none; */
+        gap: 5px;
+        justify-content: "center";
+        align-items: center;
+        cursor: pointer;
+      }
+
+      .log img {
+        width: 40px;
+        height: 40px;
+        border-radius: 100%
+      }
+      .loading {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 5px;
+      }
+     
+      .spinner {
+        border: 8px solid rgba(0, 0, 0, 0.1); 
+        border-top: 8px solid #3498db; 
+        border-radius: 50%; 
+        width: 100px;
+        height: 100px;
+        animation: spin 1s linear infinite;
+      }
+      .loading2 {
+        display: none;
+        justify-content: center;
+        align-items: center;
+        margin-top: 5px;
+
+      }
+     
+      .spinner2 {
+        border: 8px solid rgba(0, 0, 0, 0.5); 
+        border-top: 8px solid #3498db; 
+        border-radius: 50%; 
+        width: 27px;
+        height: 27px;
+        animation: spin 1s linear infinite;
+      }
+      
+     
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+      </style>
+  </head>
+  <body>
+
+    <div class="soleil-overlay ov2" id="soleil-overlay">
+    <div class="popup">
+        <h3 class="svg-cont"> <svg class="svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#ce3680" d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM164.1 325.5C182 346.2 212.6 368 256 368s74-21.8 91.9-42.5c5.8-6.7 15.9-7.4 22.6-1.6s7.4 15.9 1.6 22.6C349.8 372.1 311.1 400 256 400s-93.8-27.9-116.1-53.5c-5.8-6.7-5.1-16.8 1.6-22.6s16.8-5.1 22.6 1.6zM144.4 208a32 32 0 1 1 64 0 32 32 0 1 1 -64 0zm156.4 25.6c-5.3 7.1-15.3 8.5-22.4 3.2s-8.5-15.3-3.2-22.4c30.4-40.5 91.2-40.5 121.6 0c5.3 7.1 3.9 17.1-3.2 22.4s-17.1 3.9-22.4-3.2c-17.6-23.5-52.8-23.5-70.4 0z"/></svg>Login Required</h3>
+        <p>To <span id="acts"></span>, please log in or sign up.</p>
+        <button class="btn btn-login" onclick="login()">Login</button>
+        <button class="btn btn-cancel" onclick="cancel()">Cancel</button>
+    </div>
+</div>
+    <div class="soleil-overlay" id="comment-overlay">
+    <div class="popup">
+        <h3 class="svg-cont"><svg class="svg"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#f00000" d="M256 48a208 208 0 1 1 0 416 208 208 0 1 1 0-416zm0 464A256 256 0 1 0 256 0a256 256 0 1 0 0 512zm72.4-118.5c9.7-9 10.2-24.2 1.2-33.9C315.3 344.3 290.6 328 256 328s-59.3 16.3-73.5 31.6c-9 9.7-8.5 24.9 1.2 33.9s24.9 8.5 33.9-1.2c7.4-7.9 20-16.4 38.5-16.4s31.1 8.5 38.5 16.4c9 9.7 24.2 10.2 33.9 1.2zM176.4 272c17.7 0 32-14.3 32-32c0-1.5-.1-3-.3-4.4l10.9 3.6c8.4 2.8 17.4-1.7 20.2-10.1s-1.7-17.4-10.1-20.2l-96-32c-8.4-2.8-17.4 1.7-20.2 10.1s1.7 17.4 10.1 20.2l30.7 10.2c-5.8 5.8-9.3 13.8-9.3 22.6c0 17.7 14.3 32 32 32zm192-32c0-8.9-3.6-17-9.5-22.8l30.2-10.1c8.4-2.8 12.9-11.9 10.1-20.2s-11.9-12.9-20.2-10.1l-96 32c-8.4 2.8-12.9 11.9-10.1 20.2s11.9 12.9 20.2 10.1l11.7-3.9c-.2 1.5-.3 3.1-.3 4.7c0 17.7 14.3 32 32 32s32-14.3 32-32z"/></svg>Empty Comment</h3>
+        <p>commment field must be empty try to fill in som conents</p>
+        
+        <button class="btn btn-cancel" onclick="cancel1()">Close</button>
+    </div>
+</div>
+    <nav>
+      <h3>James</h3>
+      <div class="tail">
+        <a href="./index.html" style="text-decoration: none; margin-right: 10px;font-size: 25px;">Home</a>
+        <div class="log" id="auth2">
+          <img src="https://up.yimg.com/ib/th?id=OIP.52T8HHBWh6b0dwrG6tSpVQHaFe&%3Bpid=Api&rs=1&c=1&qlt=95&w=156&h=115" alt="">
+          <p>Logout</p>
+        </div>
+        <div id="auth1" class="login-btn">Login</div>
+  
+        
+      </div>
+    </nav>
+    <main class="common testing">
+      <div class="main-left">
+        <!-- spinner -->
+        <div class="loading" id="loader">
+          <div class="spinner"></div>
+        </div>
+
+        <h3 id="blog-title"></h3>
+        <img src="./images/ssss.jpg" alt="blog imaeg" id="soleil-image" style="display: none;"/>
+        <p id="blog-description"></p>
+
+        <div class="like-holder" id="like-holder">
+          <img src="./javascript/unlike.png" alt="yes" class="like" id="track-like"/> <span id="likes"></span>
+        </div>
+       
+        <div>
+          <h3>Comments</h3>
+          <form action="" id="add-comment-form" class="add-comment">
+              
+              <input
+                class="commm"
+                type="text"
+                placeholder="Enter comments"
+                id="comment-content"
+              />
+              <button type="submit" id="comment-btn" style="display: flex; justify-content: center;align-items: center;">
+                <div class="loading2" id="loader2">
+                  <div class="spinner2"></div>
+                </div>
+                <span id="span">Comment</span>
+              </button>
+              </form>
+          <div class="comments-container" id="comm-cont">
+           
+          </div>
+        </div>
+
+      </div>
+      <div class="main-right" id="related-blogs">
+        <h3>Related Blogs</h3>
+        
+
+        <!-- <form action="" id="newsletter" class="newsletter">
+          <input
+            class="email"
+            type="text"
+            id="newsletter-email"
+            class="newsletter-sub"
+          />
+          <input
+            class="btn"
+            type="button"
+            value="Subscribe"
+            id="newsletter-send"
+          />
+        </form> -->
+      </div>
+    </main>
+    <script src="./javascript/blog-detail.js"></script>
+  </body>
+</html>

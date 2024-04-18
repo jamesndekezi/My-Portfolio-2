@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/navbar.css" />
+    <link rel="stylesheet" href="./css/index.css" />
+    <link rel="stylesheet" href="./css/login.css" />
+
+    <title>Document</title>
+  </head>
+  <body>
+    <nav>
+      <h3>Ndekezi James</h3>
+      <div class="acts">
+        <a href="./index.html">Home</a>
+        <a href="./register.html">Register</a>
+      </div>
+    </nav>
+    <main class="common">
+      <form id="login-form" class="login-form">
+      
+        <input type="text" placeholder="Email or Username" id="username" />
+        <input type="password" placeholder="Password" id="password" />
+        <p class="error" id="user-error"></p>
+        <input type="submit" value="Login" class="btn" id="login-btn"/>
+
+        <!-- <p class="or">OR</p> -->
+        <!-- <div class="google">
+          <img src="./images/GOOGLE (1).png" alt="" />
+          <p>Continue With Google</p>
+        </div> -->
+        <a class="admin" href="./index.html">If you are not admin go back home</a>
+      </form>
+    </main>
+    <script src="./javascript/login.js"></script>
+  </body>
+</html>

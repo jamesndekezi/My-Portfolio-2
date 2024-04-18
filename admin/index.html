@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./admin-css/index.css" />
+    <link rel="stylesheet" href="./admin-css/main.css" />
+    <link rel="stylesheet" href="./admin-css/topbar.css" />
+    <link rel="stylesheet" href="./admin-css/sidebar.css" />
+    <link rel="stylesheet" href="./admin-css/dashboard.css" />
+    <link rel="stylesheet" href="./admin-css/messages.css" />
+    <link rel="stylesheet" href="./admin-css/blogs.css" />
+    <link rel="stylesheet" href="./admin-css/newsletter.css" />
+    <link rel="stylesheet" href="./admin-css/new-blog.css" />
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mui/4.11.0/material-icons/material-icons.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mui/4.11.0/umd/material-ui.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://cdn.tiny.cloud/1/s7py3fvp0fe4h80r14gj8p9kyy38u8kqpn0emz2zmfwfyw3t/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+    <title>Admin dashboard</title>
+    <style>
+
+.modal-container {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    .modal-content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: white;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+      width: 50%;
+    }
+
+    @media only screen and (max-width: 768px) {
+      .modal-content {
+        width: 90%;
+      }
+      
+    }
+
+    .close-icon {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      cursor: pointer;
+    }
+      
+      .loading {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 5px;
+      }
+
+      #edit-blog-description{
+        height: 100px;
+      }
+      .hh {
+        display: none;
+      }
+     
+      .spinner {
+        border: 8px solid rgba(0, 0, 0, 0.1); 
+        border-top: 8px solid #3498db; 
+        border-radius: 50%; 
+        width: 30px;
+        height: 30px;
+        animation: spin 1s linear infinite;
+      }
+      .or {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+      }
+      
+      .loading2{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+      }
+     
+      .spinner2 {
+        border: 8px solid rgba(0, 0, 0, 0.1); 
+        border-top: 8px solid #3498db; 
+        border-radius: 50%; 
+        width: 100px;
+        height: 100px;
+        animation: spin 1s linear infinite;
+      }
+      
+      
+     
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+
+
+      /* modal */
+
+      .overlay3 {
+          display: none;
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background-color: rgba(0, 0, 0, 0.5); 
+          z-index: 9999;
+          }
+
+      .modal-form3 {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: white;
+        padding: 20px;
+        border-radius: 8px;
+        max-width:400px;
+        width: 90%; 
+      }
+
+        .modal-form3 div {
+          margin-bottom: 10px;
+        }
+
+       
+
+        
+
+        .new-title {
+          border: 1px solid black;
+          margin: 5px 0;
+        }
+
+        .change-img {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
+
+        .change-img img {
+          width: 100px;
+          height: 100px;
+          /* border-radius: 50%; */
+        }
+        
+      .modal10 {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0, 0, 0, 0.5);
+        justify-content: center;
+        align-items: center;
+      }
+
+      .modal-content10 {
+        background-color: #fefefe;
+        margin: 15% auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 200px;
+        text-align: center;
+      }
+
+      .spinner10 {
+        border: 4px solid rgba(0, 0, 0, 0.1);
+        border-left-color: #333;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        animation: spin 1s linear infinite;
+        margin: 0 auto 10px;
+      }
+
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
+        
+
+      </style>
+  </head>
+  <body style="position: relative;">
+
+
+    <!-- Modal container -->
+<div id="modal-container" class="modal-container">
+  <!-- Modal content -->
+  <!-- <div class="modal-content"> -->
+    <!-- <span class="close-icon material-icons" onclick="closeModal()">close</span> -->
+    <form id="edit-blog-form" class="modal-form3">
+      <!-- <div style="margin-bottom: 10px;">Edit Blog Form</div> -->
+      <div style="margin-bottom: 10px;">
+        <label for="edit-blog-title">Blog Title</label>
+        <input type="text" id="edit-blog-title" class="new-title" placeholder="blog title">
+        <div for="edit-blog-image">Blog Image</div>
+        <!-- <img src="" alt="show img" id="show-im" /> -->
+        <div class="change-img">
+          <img class="b-image" src="" 
+            alt="img edit" style="width: 100px;height: 100px;" 
+            id="edit-blog-image">
+            <!-- <img src="" alt="show img" id="show-im" /> -->
+          <div class="or">OR</div>
+          <label for="new-blog-img">
+            <img src="./images/icons/upload.png" alt="" />
+            <p>Change Image</p>
+          </label>
+          <input type="file" id="new-blog-img" name="new-im" class="hh" />
+        </div>
+      </div>
+      <textarea id="edit-blog-description"></textarea>
+      <div class="actss">
+        <div id="cancel-edit" class="can">Cancel</div>
+        <button type="submit" id="confirm-edit" class="div">
+          <div class="loading5" id="loader5">
+            <div class="spinner5"></div>
+          </div>
+          <div id="conf">Confirm</div>
+        </button>
+      </div>
+    </form>
+  <!-- </div> -->
+</div>
+
+    <!-- delete modal -->
+    <div id="modal10" class="modal10">
+      <div class="modal-content10">
+        <div class="spinner10"></div>
+        <p>Deleting...</p>
+      </div>
+    </div>
+    <!-- delete modal -->
+    <div class="flex-cols common">
+      <div class="side-bar" id="side-bar">
+        <h4 id="close-me">Admin Pannel</h4>
+        <h4 id="close-me2">Admin Pannel</h4>
+        <div class="links">
+          <p class="active">Dashboard</p>
+          <p class="">Messages</p>
+          <p class="">Blogs</p>
+          <p class="">Newsletter</p>
+          <p class="">AddBlog</p>
+        </div>
+      </div>
+      <div class="top-bar">
+        <div class="burger" id="burger">
+          <span class="line"></span>
+          <span class="line"></span>
+          <span class="line"></span>
+        </div>
+
+        <img src="../images/me.png" alt="some imegae" id="logout" />
+      </div>
+      <div class="main-contents">
+        <!-- dashboard html -->
+        <div class="dashboard" id="dashboard">
+          <div class="card-container">
+            <div class="card">
+              <img src="./images/icons/users.png" alt="" />
+              <div class="count" id="user-count">
+                <div class="loading">
+                  <div class="spinner"></div>
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <img src="./images/icons/message.png" alt="" />
+              <div class="count" id="message-count">
+                <div class="loading">
+                  <div class="spinner"></div>
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <img src="./images/icons/blog.png" alt="" />
+              <div class="count" id="blog-count">
+
+                <div class="loading">
+                  <div class="spinner"></div>
+                </div>
+
+            </div>
+            </div>
+            <div class="card">
+              <img src="./images/icons/subscribers.png" alt="" />
+              <div class="count" id="subscriber-count">
+                <div class="loading">
+                  <div class="spinner"></div>
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <img src="./images/icons/request.png" alt="" />
+              <div class="count" id="request-count">3 Requests</div>
+            </div>
+          </div>
+          <div class="recent-stats">
+            <!-- <h2>User Management</h2> -->
+            <table class="user-list">
+              <thead>
+                <tr>
+                  <th class="sm-hidden">Profile Picture</th>
+                  <th>Name</th>
+                  <th>Email</th>
+                  <th class="sm-hidden">Role</th>
+                  <th class="sm-hidden">Register At</th>
+                  <!-- New column -->
+                </tr>
+              </thead>
+              <tbody id="table">
+                
+                
+              </tbody>
+            </table>
+            <div class="recent-subscribers" id="recent-subscribers">
+              <h4>Recent Subscribers</h4>
+              
+              <div class="loading">
+                <div class="spinner"></div>
+              </div>
+              
+              
+            </div>
+          </div>
+          <canvas id="userChart" width="400" height="200"></canvas>
+        </div>
+
+        <!-- dashboard -->
+
+        <!-- messages htm starts here -->
+        <div class="messages" id="messages">
+          
+         
+          <!-- <div class="messages" id="messi">
+            
+          </div> -->
+      
+         
+
+          <div class="overlay" id="overlay">
+            <div class="delete-model" id="delete-model">
+              <!-- delete model -->
+              <div class="delete-model-content" id="delete-model-content">
+                <h3>Are you sure you want to delete this message?</h3>
+                <div class="buttons">
+                  <button id="yes" class="yes">Yes</button>
+                  <button id="no" class="no">No</button>
+                </div>
+              </div>
+              <!-- replay from -->
+            </div>
+            <div class="form-setting" id="form-setting">
+              <form class="reply-form" id="reply-form">
+                <input
+                  type="text"
+                  name=""
+                  id="reply-subject"
+                  placeholder="Enter Subject"
+                />
+                <textarea name="" id="" cols="30" rows="10"></textarea>
+                <input type="submit" name="" value="Reply" />
+                <button class="cancel-reply" id="no">Cancel</button>
+              </form>
+            </div>
+
+            
+          </div>
+
+          <!-- <div class="loading-wrapper" id="wraper">
+            <div class="loading-spinner"></div>
+            <div class="loading-text">Loading...</div>
+          </div> -->
+        </div>
+        <!-- messages html end here -->
+
+        <div class="blogs" id="blogs">
+          <!-- <div class="add-blog">
+            <button id="add-blog-btn">Add new Blog</button>
+          </div> -->
+
+          <h3>All Blogs</h3>
+          <div class="blog-container" id="blog-cont">
+            
+            
+          <!-- <div class="edit-overlay" id="edit-overlay">
+            <div class="add-blog-container" id="add-blog-container">
+
+
+             
+              <form  id="edit-blog-form">
+                
+                <div style="margin-bottom: 10px;">Edit Blog Form</div>
+                
+                <div style="margin-bottom: 10px;">
+                  <label for="edit-blog-title">Blog Title</label>
+                  <input type="text" id="edit-blog-title" class="new-title" placeholder="blog title">
+                  <label for="edit-blog-image">Blog Image</label>
+                  <img src="" alt="img edit" style="width: 100px;height: 100px;" id="edit-blog-image">
+                </div>
+                
+                <textarea id="edit-blog-description"></textarea>
+                
+                <div class="hask">
+                  <input type="button" value="cancel" id="add" />
+                  <input type="submit" value="Edit Blog" id="add" class="close-edit"/>
+                </div>
+
+                <div class="actss">
+                  <button id="cancel-edit">Cancel</button>
+                  <button type="submit" id="confirm-edit">Confirm</button>
+                </div>
+                  
+              </form>
+              
+              
+            </div>
+          </div> -->
+
+
+
+
+
+
+
+
+
+          <!-- from ciodepen -->
+          <div class="overlay3" id="overlay3">
+            <form id="edit-blog-form" class="modal-form3">
+              <div style="margin-bottom: 10px;">Edit Blog Form</div>
+              <div style="margin-bottom: 10px;">
+                <label for="edit-blog-title">Blog Title</label>
+                <input type="text" id="edit-blog-title" class="new-title" placeholder="blog title">
+                <div for="edit-blog-image">Blog Image</div>
+                <!-- <img src="" alt="show img" id="show-im" /> -->
+                <div class="change-img">
+                  <img class="b-image" src="" 
+                    alt="img edit" style="width: 100px;height: 100px;" 
+                    id="edit-blog-image">
+                    <!-- <img src="" alt="show img" id="show-im" /> -->
+                  <div class="or">OR</div>
+                  <label for="new-blog-img">
+                    <img src="./images/icons/upload.png" alt="" />
+                    <p>Change Image</p>
+                  </label>
+                  <input type="file" id="new-blog-img" name="new-im" class="hh" />
+                </div>
+              </div>
+              <textarea id="edit-blog-description"></textarea>
+              <div class="actss">
+                <div id="cancel-edit" class="can">Cancel</div>
+                <button type="submit" id="confirm-edit" class="div">
+                  <div class="loading5" id="loader5">
+                    <div class="spinner5"></div>
+                  </div>
+                  <div id="conf">Confirm</div>
+                </button>
+              </div>
+            </form>
+          </div>
+          <!--  -->
+
+
+          <div class="blog-overlay" id="blog-overlay">
+            <div class="add-blog-container" id="add-blog-container">
+              <form class="add-blog-form" id="add-blog-form">
+                <input
+                  type="text"
+                  name=""
+                  id="blog-title"
+                  placeholder="Enter blog Title"
+                />
+                <label for="blog-image">
+                  <img src="./images/icons/message.png" alt="" />
+                  <p>Choose Blog Image</p>
+                </label>
+                <input type="file" name="" id="blog-image" />
+                <textarea
+                  id="add-blog-description"
+                  placeholder="Enter Blog description #markdown supported"
+                ></textarea>
+                <input type="submit" value="Submit" />
+      
+              </form>
+            </div>
+          </div>
+          
+        </div>
+        <div class="loading2" id="spinner3">
+          <div class="spinner2"></div>
+        </div>
+        
+  
+      </div>
+            
+        <div class="rich-add-blog" id="addblog">
+          <h3 style="margin-bottom: 10px;">Add NewBlog</h3>
+          <form id="new-blog-form">
+            <div style="margin-bottom: 10px;">
+              <label for="new-title" style="margin-bottom: 10px;">Blog Title</label>
+              <input type="text" required id="new-title" class="new-title" placeholder="blog title" style="margin-top: 10px;">
+            </div>
+           
+              <label for="new-image" class="soleill" id="label" style="display: flex; justify-content: space-between; align-items: center;">
+                <img src="" id="show-image" alt="some image" class="new-image"/>
+                <img src="./images/icons/upload.png" alt="" />
+                <!-- <div>Choose Blog Image</div> -->
+              </label>
+              <input type="file" name="" id="new-image" class="new-image">
+              <!-- <input type="file" name="" id="show-image" class="new-image"> -->
+           
+            
+            <textarea  id="mytextarea"></textarea>
+            <!-- <input  value="Add Blog soleil" /> -->
+            <button type="submit" id="soleil-test" class="add-soleil" style="background: gray;">
+              <div class="loading" id="loader10">
+                <div class="spinner"></div>
+              </div>
+              <span id="span10">Add Blog</span>
+            </button>
+          </form>
+        </div>
+
+        <div class="newsletter" id="newsletter">
+          <h3>Newsletter Subscribers</h3>
+          
+          <div class="tooltip">+</div>
+        </div>
+    </div>
+    <script type="module" src="./js/index.js"></script>
+    <script type="module" src="./js/dashboard.js"></script>
+    <script type="module" src="./js/messages.js"></script>
+    <script type="module" src="./js/blog.js"></script>
+    <script type="module" src="./js/newsletter.js"></script>
+    <script type="module" src="./js/textarea.js"></script>
+    <script type="module" src="./js/editBlog.js"></script>
+    <!-- <script type="module" src="./js/t.js"></script> -->
+    <!-- Material-UI JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/17.0.1/umd/react.production.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/17.0.1/umd/react-dom.production.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mui/4.11.0/umd/material-ui.production.min.js"></script>
+    <script>
+  tinymce.init({
+    selector: '#mytextarea,#edit-blog-description',
+    plugins: '',
+    toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | addcomment showcomments | spellcheckdialog a11ycheck typography | align lineheight | checklist numlist bullist indent outdent | emoticons charmap | removeformat',
+    tinycomments_mode: 'embedded',
+    tinycomments_author: 'Author name',
+    mergetags_list: [
+      { value: 'First.Name', title: 'First Name' },
+      { value: 'Email', title: 'Email' },
+    ],
+    ai_request: (request, respondWith) => respondWith.string(() => Promise.reject("See docs to implement AI Assistant")),
+  });
+</script>
+<script src="./js/admin.js"></script>
+  </body>
+</html>

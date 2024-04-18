@@ -1,0 +1,173 @@
+.blogs {
+  padding: 20px;
+  width: 100%;
+  position: relative;
+}
+
+.add-blog {
+  width: 200px;
+}
+
+.add-blog button {
+  padding: 10px;
+  /* background: rgb(155, 155, 159, 0.5); */
+  border-radius: 10px;
+  border: none;
+  /* color: white; */
+  font-family: "roboto";
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.3);
+}
+
+.add-blog button:active {
+  box-shadow: inset 0 10px 10px rgba(0, 0, 0, 0.3);
+}
+
+.blogs h3 {
+  padding-top: 20px;
+  font-family: "roboto";
+}
+
+.blog-container {
+  margin-top: 20px;
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  
+}
+
+.blog {
+  /* width: 200px; */
+  background: #ddd9d9;
+  position: relative;
+}
+.blog img {
+  width: 100%;
+  height: 200px;
+}
+
+.blog-description {
+  padding: 10px;
+  background: #ddd9d9;
+}
+
+.blog-category {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  padding: 5px 10px;
+  border-radius: 6px;
+  background: white;
+  width: 60%;
+  white-space: nowrap;
+  font-size: 16px;
+}
+.blog-description p {
+  font-weight: bold;
+  padding-bottom: 10px;
+}
+
+.blog-description .blog-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.blog-description .blog-actions button {
+  padding: 6px;
+  border: none;
+  border-radius: 8px;
+  font-family: "roboto";
+}
+
+.blog-actions button:nth-child(1) {
+  /* background: red;
+  color: white; */
+}
+
+.blog-actions button:nth-child(2) {
+  /* background: blue;
+  color: white; */
+}
+
+/* addd blog form css starts here */
+
+.add-blog-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #d3cece;
+  width: 50%;
+  padding: 20px;
+  max-height: 70vh;
+  height: 100%;
+}
+
+.add-blog-form input {
+  padding: 10px;
+  width: 100%;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+}
+
+.add-blog-form input[type="file"] {
+  display: none;
+}
+
+.add-blog-form label {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background: #896666;
+  margin: 10px 0;
+  border-radius: 10px;
+}
+
+.add-blog-form label img {
+  width: 40%;
+}
+
+.add-blog-form textarea {
+  max-width: 100%;
+  width: 100%;
+  min-height: 120px;
+  max-height: 35vh;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  border: none;
+}
+
+.blog-cancel {
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+.blog-overlay,.edit-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+  display: none;
+}
+
+
+
+@media only screen and (max-width: 786px) {
+  .add-blog-container {
+    width: 70%;
+  }
+}
+@media only screen and (max-width: 460px) {
+  .add-blog-container {
+    width: 90%;
+  }
+}

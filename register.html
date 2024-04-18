@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/navbar.css" />
+    <link rel="stylesheet" href="./css/index.css" />
+    <link rel="stylesheet" href="./css/register.css" />
+    <title>Register with us</title>
+    <style>
+      .btn4 {
+        background: aqua;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .loading3 {
+        display: none;
+        justify-content: center;
+        align-items: center;
+        margin-top: 5px;
+      }
+     
+      .spinner3 {
+        border: 8px solid rgba(0, 0, 0, 0.1); 
+        border-top: 8px solid #3498db; 
+        border-radius: 50%; 
+        width: 30px;
+        height: 30px;
+        animation: spin 1s linear infinite;
+      }
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <h2>Ndekezi James</h2>
+      <div class="acts">
+        <a href="./index.html">Home</a>
+        <a href="./login.html">Login</a>
+      </div>
+    </nav>
+    <main class="common">
+      <form action="" id="register-form" class="register-form">
+        <input type="text" placeholder="Username" id="username" />
+        <input type="text" placeholder="Email" id="email" />
+        <input type="password" placeholder="Password" id="password" />
+        <!-- <input type="submit" value="Register" class="btn4" /> -->
+        <button type="submit" class="btn4" id="register-btn">
+          <div class="loading3" id="loader3">
+            <div class="spinner3"></div>
+          </div>
+          <span id="span2">Register</span>
+        </button>
+
+        <p class="or">OR</p>
+        <div class="google">
+          <img src="./images/GOOGLE (1).png" alt="" />
+          <p>Continue With Google</p>
+        </div>
+      </form>
+    </main>
+    <script src="./javascript/register.js"></script>
+  </body>
+</html>

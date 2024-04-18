@@ -1,0 +1,30 @@
+.main-contents {
+  /* background-color: aqua; */
+  width: calc(100% - 20%);
+  margin-left: 20%;
+  padding: 2px;
+
+  min-height: calc(100vh - 60px);
+  overflow-x: hidden;
+}
+
+.dashboard,
+.messages,
+.blogs,
+.newsletter {
+  min-height: calc(100vh - 60px);
+}
+
+.messages,
+.blogs,
+.newsletter {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .main-contents {
+    margin-left: 0;
+    width: 100%;
+    margin-top: 60px;
+  }
+}

@@ -1,0 +1,55 @@
+.project img {
+  width: 100%;
+  min-height: 250px;
+  height: 100%;
+  border-radius: 5px;
+}
+
+.project {
+  background: white;
+  margin-bottom: 10px;
+  transition: transform 0.5s ease-in-out;
+  position: relative;
+  border-radius: 5px;
+  min-width: 200px;
+}
+
+.project:hover .project-description {
+  display: block;
+}
+.project:hover {
+  /* transform: translateY(-40px); */
+  box-shadow: -1px 2px 3px 5px rgba(255, 255, 255, 0.5);
+}
+
+.project-description {
+  padding: 10px;
+  /* display: none; */
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  padding: 8px 12px;
+  background: rgba(171, 13, 29, 0.6);
+}
+
+.projects-container {
+  gap: 20px;
+  display: flex;
+  overflow-x: auto;
+  scrollbar-width: thin; 
+  scrollbar-color: rgba(0, 0, 0, 0.3) rgba(0, 0, 0, 0); 
+}
+
+
+.projects-container::-webkit-scrollbar {
+  width: 3px; 
+}
+.projects-container::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0); 
+}
+
+.projects-container::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.3); 
+  border-radius: 4px; 
+}

@@ -1,0 +1,207 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+a {
+  text-decoration: none;
+  color: #000;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 40px;
+  background: #292b2c;
+  color: white !important;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.acts a {
+  margin-left: 20px;
+}
+
+nav ul li {
+  list-style: none;
+  display: inline-block;
+  margin: 0 10px;
+}
+nav a {
+  color: white;
+}
+nav a :hover {
+  text-decoration: underline;
+  color: white;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.nav-right a {
+  margin-left: 10px;
+}
+
+.burger {
+  display: none;
+}
+
+.burger span {
+  display: block;
+  width: 30px;
+  height: 4px;
+  background: #ffffff;
+  margin: 5px 0;
+  border-radius: 5px;
+}
+
+.sidebar a {
+  font-size: 18px;
+}
+
+.sidebar a:nth-last-child() {
+  padding-bottom: 20px;
+}
+
+.sidebar {
+  display: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: red;
+  padding: 20px;
+  width: 60%;
+}
+.test {
+  margin-top: auto;
+}
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+  }
+
+  to {
+    transform: translateX(0%);
+  }
+}
+@keyframes slideOuts {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
+
+.special {
+
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  height: 100vh;
+  animation: slideOuts 0.2s ease-in-out;
+
+}
+
+.show {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  height: 100vh;
+  animation: slideIn 0.2s ease-in-out;
+  background: white;
+  /* position: relative; */
+}
+
+.show a:hover {
+
+  background: rgb(53, 57, 57);
+  color: white;
+
+}
+
+/* .mob {
+  width: 100%;
+  padding: 10px;
+  border-radius: 30px;
+  text-align: center;
+  background: rgb(53, 57, 57);
+  color: white !important;
+} */
+
+.sidebar-x {
+  color: #000;
+  font-size: 20px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+
+.show a {
+  color: #000;
+  padding: 10px;
+  border-radius: 5px;
+  /* background: lightskyblue; */
+  text-decoration: none;
+  cursor: pointer;
+
+}
+.hide {
+  animation: slideOut 0.2s ease-in-out; 
+  display: none;
+}
+
+@media only screen and (max-width: 780px) {
+  ul {
+    display: none;
+  }
+  .burger {
+    display: block;
+  }
+  nav {
+    padding: 15px 25px;
+  }
+}
+
+@media only screen and (max-width: 460px) {
+  .nav-right {
+    display: none;
+  }
+  nav {
+    padding: 10px 15px;
+  }
+}
+
+.yy {
+  margin-top: 20px;
+}
+
+
+
+.user1 {
+  background: rgb(53, 57, 57);
+  color: white;
+  display: flex;
+  gap: 5px;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.user1 img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.user1 button {
+  padding: 5px 20px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+}

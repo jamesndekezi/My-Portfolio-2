@@ -1,0 +1,121 @@
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  overflow: hidden;
+  gap: 10px;
+
+  width: 100%;
+  padding: 10px;
+}
+
+.dashboard {
+  padding: 20px;
+}
+
+.card img {
+  width: 50%;
+}
+
+.card {
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4);
+  padding: 10px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.card div {
+  text-align: center;
+}
+
+/* Additional CSS for styling the user list table */
+
+.user-list {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.user-list th,
+.user-list td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.user-list th {
+  background-color: #f2f2f2;
+}
+
+.user-list img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.user-list tr:hover {
+  background-color: #f9f9f9;
+}
+
+/* usre stats */
+
+.recent-stats {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.recent-subscribers {
+  margin-top: 20px;
+  width: 30%;
+  box-shadow: 2px 1px 4px 5px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  border-radius: 5px;
+  height: 400px;
+}
+
+.recent-subscribers h4 {
+  text-align: center;
+  padding: 10px;
+  font-size: 30px;
+  font-family: "roboto";
+}
+
+.subscriber {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.subscriber p:nth-child(1) {
+  font-weight: bold;
+}
+.subscriber p:nth-child(2) {
+  color: gray;
+}
+
+.subscriber img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+@media only screen and (max-width: 900px) {
+  .recent-stats {
+    flex-direction: column;
+  }
+  .recent-subscribers {
+    width: 100%;
+    box-shadow: 2px 1px 4px 5px rgba(0, 0, 0, 0.09);
+  }
+
+  .sm-hidden {
+    display: none;
+  }
+  .recent-subscribers h4 {
+    text-align: start;
+  }
+}

@@ -1,0 +1,45 @@
+.top-bar {
+  background-color: #d2c2c2;
+  margin-left: 20%;
+  padding: 10px;
+  display: none;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 100;
+}
+
+.top-bar div {
+}
+
+.top-bar img {
+  width: 40px;
+  margin-left: auto;
+}
+
+.burger {
+  display: none;
+}
+
+.line {
+  display: block;
+  width: 30px;
+  height: 4px;
+  background: #ffffff;
+  margin: 5px 0;
+  border-radius: 5px;
+}
+
+@media (max-width: 768px) {
+  .top-bar {
+    margin-left: 0;
+    display: flex;
+  }
+
+  .burger {
+    display: block;
+  }
+}

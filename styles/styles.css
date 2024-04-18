@@ -694,6 +694,22 @@ section {
   padding-left: 0;
 }
 
+/* CSS for login button */
+.contact .right-contact .btn-con button {
+  padding: 10px 20px;
+  background-color: #1f242d; /* Adjust background color */
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.contact .right-contact .btn-con button:hover {
+  background-color: #0ef; /* Adjust hover background color */
+}
+
+
 @media screen and (max-width: 600px) {
   header {
     padding: 0 !important;
