@@ -23,27 +23,27 @@ humburge.addEventListener("click", () => {
   // alert("Slides")
 });
 
-closeBtn.addEventListener("click", ()=>{
-  sidebar.classList.toggle("show");
-});
+// closeBtn.addEventListener("click", ()=>{
+//   sidebar.classList.toggle("show");
+// });
 
-const load = () => {
-  const reveals = document.querySelectorAll(".reveals");
+// const load = () => {
+//   const reveals = document.querySelectorAll(".reveals");
 
-  Array.from(reveals).forEach((item, index) => {
-    const windowHeight = window.innerHeight;
-    const revealPoint = 30;
-    const revealTop = item.getBoundingClientRect().top;
+//   Array.from(reveals).forEach((item, index) => {
+//     const windowHeight = window.innerHeight;
+//     const revealPoint = 30;
+//     const revealTop = item.getBoundingClientRect().top;
 
-    if (revealTop < windowHeight - revealPoint) {
-      item.classList.add("active");
-    } else {
-      item.classList.remove("active");
-    }
-  });
-};
+//     if (revealTop < windowHeight - revealPoint) {
+//       item.classList.add("active");
+//     } else {
+//       item.classList.remove("active");
+//     }
+//   });
+// };
 
-window.addEventListener("scroll", load);
+// window.addEventListener("scroll", load);
 
 const sidebarLinks = document.querySelectorAll("ul li a");
 
